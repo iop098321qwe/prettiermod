@@ -33,7 +33,7 @@ configs, nested `AGENTS.md` files, or release automation.
 
 - Bash is required to source and run `cbc-module.sh`.
 - Git is required for day-to-day work in this repository.
-- Node.js and `npx` are required when running `pretty html`.
+- Node.js and `npx` are required when running formatter commands.
 - npm manages the commit tooling declared in `package.json`.
 - `package-lock.json` records commitlint packages requiring Node
   `>=22.12.0`.
@@ -55,11 +55,13 @@ configs, nested `AGENTS.md` files, or release automation.
 - `.husky/commit-msg`: commit message hook running commitlint.
 - `AGENTS.md`: root AI coding agent instructions.
 - `LICENSE`: GNU GPL version 3 license text.
-- `README.md`: primary project overview and `pretty` usage notes.
+- `README.md`: primary project overview and `pretty` command reference.
 - `cbc-module.sh`: CBC module entrypoint defining the `pretty` launcher.
 - `commitlint.config.cjs`: Conventional Commits lint configuration.
-- `docs/AGENTS.md`: AI instructions for documentation source work.
-- `docs/README.md`: documentation site source README.
+- `docs/AGENTS.md`: symlink to the root AGENTS instructions.
+- `docs/README.md`: symlink to the root README for docs source.
+- `inbox.txt.tuxedo-lock`: empty tracked lock file.
+  Verification needed: workflow purpose is not documented.
 - `package-lock.json`: npm dependency lockfile for commit tooling.
 - `package.json`: npm package metadata, scripts, and dev dependencies.
 - `site/404.html`: generated documentation 404 page.
@@ -83,8 +85,10 @@ configs, nested `AGENTS.md` files, or release automation.
 
 - `cbc-module.sh` exposes the `pretty` Bash function.
 - `pretty` dispatches subcommands through a `case` statement.
-- `pretty html` runs `npx --yes prettier --write "**/*.html"`.
-- The quoted glob is resolved by Prettier from the current directory.
+- Formatter arms call `npx --yes prettier --write` with quoted globs.
+- `pretty angular` also passes `--parser angular` for component
+  templates.
+- The quoted globs are resolved by Prettier from the current directory.
 - `package.json`, `.husky/commit-msg`, and `commitlint.config.cjs`
   enforce Conventional Commit messages.
 - `docs/` is the source for documentation built into `site/` by
@@ -94,7 +98,26 @@ configs, nested `AGENTS.md` files, or release automation.
 
 - `source ./cbc-module.sh`: load the `pretty` Bash function.
 - `pretty help`: show available `pretty` subcommands.
-- `pretty html`: format recursive HTML files from the current directory.
+- Formatter commands run recursively from the current directory.
+- `pretty angular`: format Angular component templates.
+- `pretty css`: format CSS files.
+- `pretty graphql`: format GraphQL files.
+- `pretty hbs`: format Handlebars files.
+- `pretty html`: format HTML files.
+- `pretty js`: format JavaScript files.
+- `pretty json`: format JSON files.
+- `pretty json5`: format JSON5 files.
+- `pretty jsonc`: format JSONC files.
+- `pretty jsx`: format JSX files.
+- `pretty less`: format Less files.
+- `pretty md`: format common Markdown files.
+- `pretty mdx`: format MDX files.
+- `pretty mjml`: format MJML files.
+- `pretty scss`: format SCSS files.
+- `pretty ts`: format TypeScript files.
+- `pretty tsx`: format TSX files.
+- `pretty vue`: format Vue files.
+- `pretty yaml`: format YAML files.
 - `bash -n cbc-module.sh`: check shell syntax.
 - `bash -c 'source ./cbc-module.sh; pretty help'`: verify help output.
 - `git status --short --branch`: show branch and worktree state.
@@ -108,13 +131,13 @@ configs, nested `AGENTS.md` files, or release automation.
 - No automated passing test suite is verified in this repository.
 - Use `bash -n cbc-module.sh` after shell changes.
 - Use `pretty help` and an unknown command to verify dispatcher behavior.
-- Shadow `npx` in a shell function to verify `pretty html` safely.
-- Do not run real `pretty html` in the repo unless formatting tracked
-  HTML files is intended.
+- Shadow `npx` in a shell function to verify formatter commands safely.
+- Do not run real formatter commands in the repo unless formatting
+  tracked files is intended.
 
 ## Linting and Formatting
 
-- `pretty html` formats HTML files through Prettier via `npx`.
+- `pretty` formatter commands format files through Prettier via `npx`.
 - No shell linter is configured.
 - Commit message linting is configured through commitlint and Husky.
 - Keep changes minimal and consistent with existing shell style.
@@ -154,7 +177,8 @@ configs, nested `AGENTS.md` files, or release automation.
 
 ## Dependencies and Services
 
-- `pretty html` depends on `npx` resolving and running Prettier.
+- `pretty` formatter commands depend on `npx` resolving and running
+  Prettier.
 - npm dev dependencies provide commitlint and Husky tooling.
 - Documentation CI depends on the PyPI `zensical` package.
 - No databases, queues, storage services, or runtime web services are
@@ -163,7 +187,8 @@ configs, nested `AGENTS.md` files, or release automation.
 ## Troubleshooting
 
 - If `pretty` is missing, run `source ./cbc-module.sh` in the shell.
-- If `pretty html` cannot find `npx`, install or activate Node.js/npm.
+- If a formatter command cannot find `npx`, install or activate
+  Node.js/npm.
 - If commitlint rejects a commit body, wrap body lines under 100
   characters.
 - If generated `site/` files change unexpectedly, verify Zensical owns
