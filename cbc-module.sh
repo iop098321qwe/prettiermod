@@ -18,6 +18,7 @@ Commands:
   jsx   Format JSX files recursively from the current directory
   less  Format Less files recursively from the current directory
   md    Format Markdown files recursively from the current directory
+  mdx   Format MDX files recursively from the current directory
   scss  Format SCSS files recursively from the current directory
   ts    Format TypeScript files recursively from the current directory
   tsx   Format TSX files recursively from the current directory
@@ -52,6 +53,9 @@ USAGE
     md)
       npx --yes prettier --write \
         "**/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}"
+      ;;
+    mdx)
+      npx --yes prettier --write "**/*.mdx"
       ;;
     scss)
       npx --yes prettier --write "**/*.scss"
