@@ -11,6 +11,7 @@ Usage: pretty <command>
 Commands:
   html  Format HTML files recursively from the current directory
   js    Format JavaScript files recursively from the current directory
+  jsx   Format JSX files recursively from the current directory
   help  Show this help message
 USAGE
       ;;
@@ -19,6 +20,9 @@ USAGE
       ;;
     js)
       npx --yes prettier --write "**/*.{js,cjs,mjs}"
+      ;;
+    jsx)
+      npx --yes prettier --write "**/*.jsx"
       ;;
     *)
       printf 'pretty: unknown command: %s\n' "$command" >&2
