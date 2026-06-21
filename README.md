@@ -1,3 +1,70 @@
 # Prettiermod
 
 A module for using `prettier` via `npx` for different file types.
+
+## Usage
+
+Load the CBC module, then run `pretty` from the directory you want to format.
+
+```bash
+source ./cbc-module.sh
+pretty help
+```
+
+Formatter commands run Prettier through `npx`. By default, `pretty` passes
+`--write`, so matching files are updated in place.
+
+Pass multiple file types as separate arguments:
+
+```bash
+pretty html js css
+pretty web mjml
+```
+
+Comma-separated file types are not supported. Use `pretty html js css` instead
+of `pretty html,js,css`.
+
+Pass Prettier options after `--`:
+
+```bash
+pretty web -- --check
+pretty html js -- --config .prettierrc
+```
+
+When passthrough options include `--check`, `-c`, `--list-different`, `-l`, or
+`--debug-check`, `pretty` omits its default `--write` flag.
+
+## Shortcuts
+
+| Command      | Expands to                                                                           |
+| ------------ | ------------------------------------------------------------------------------------ |
+| `pretty web` | `html css scss less js jsx ts tsx vue json json5 jsonc yaml md mdx graphql hbs`      |
+| `pretty all` | `css graphql hbs html js json json5 jsonc jsx less md mdx mjml scss ts tsx vue yaml` |
+
+Shortcuts can be combined with explicit file types. Duplicate file types are
+deduplicated in first-seen order.
+
+## Commands
+
+| Command          | Files                                           |
+| ---------------- | ----------------------------------------------- |
+| `pretty css`     | `**/*.css`                                      |
+| `pretty graphql` | `**/*.{graphql,gql}`                            |
+| `pretty hbs`     | `**/*.{hbs,handlebars}`                         |
+| `pretty html`    | `**/*.html`                                     |
+| `pretty js`      | `**/*.{js,cjs,mjs}`                             |
+| `pretty json`    | `**/*.json`                                     |
+| `pretty json5`   | `**/*.json5`                                    |
+| `pretty jsonc`   | `**/*.jsonc`                                    |
+| `pretty jsx`     | `**/*.jsx`                                      |
+| `pretty less`    | `**/*.less`                                     |
+| `pretty md`      | `**/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}` |
+| `pretty mdx`     | `**/*.mdx`                                      |
+| `pretty mjml`    | `**/*.mjml`                                     |
+| `pretty scss`    | `**/*.scss`                                     |
+| `pretty ts`      | `**/*.{ts,cts,mts}`                             |
+| `pretty tsx`     | `**/*.tsx`                                      |
+| `pretty vue`     | `**/*.vue`                                      |
+| `pretty yaml`    | `**/*.{yaml,yml}`                               |
+
+Formatter commands let Prettier infer the parser from each matching file path.
