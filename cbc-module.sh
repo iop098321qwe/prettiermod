@@ -17,6 +17,7 @@ Commands:
   jsonc Format JSONC files recursively from the current directory
   jsx   Format JSX files recursively from the current directory
   less  Format Less files recursively from the current directory
+  md    Format Markdown files recursively from the current directory
   scss  Format SCSS files recursively from the current directory
   ts    Format TypeScript files recursively from the current directory
   tsx   Format TSX files recursively from the current directory
@@ -47,6 +48,10 @@ USAGE
       ;;
     less)
       npx --yes prettier --write "**/*.less"
+      ;;
+    md)
+      npx --yes prettier --write \
+        "**/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}"
       ;;
     scss)
       npx --yes prettier --write "**/*.scss"
