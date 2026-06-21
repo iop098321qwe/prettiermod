@@ -13,6 +13,7 @@ Commands:
   js    Format JavaScript files recursively from the current directory
   jsx   Format JSX files recursively from the current directory
   ts    Format TypeScript files recursively from the current directory
+  tsx   Format TSX files recursively from the current directory
   help  Show this help message
 USAGE
       ;;
@@ -27,6 +28,9 @@ USAGE
       ;;
     ts)
       npx --yes prettier --write "**/*.{ts,cts,mts}"
+      ;;
+    tsx)
+      npx --yes prettier --write "**/*.tsx"
       ;;
     *)
       printf 'pretty: unknown command: %s\n' "$command" >&2
