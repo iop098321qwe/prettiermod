@@ -9,8 +9,12 @@ function pretty() {
 Usage: pretty <command>
 
 Commands:
+  html  Format HTML files recursively from the current directory
   help  Show this help message
 USAGE
+      ;;
+    html)
+      npx --yes prettier --write "**/*.html"
       ;;
     *)
       printf 'pretty: unknown command: %s\n' "$command" >&2
