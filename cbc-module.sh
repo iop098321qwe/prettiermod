@@ -9,6 +9,7 @@ function pretty() {
 Usage: pretty <command>
 
 Commands:
+  angular  Format Angular templates recursively from the current directory
   css   Format CSS files recursively from the current directory
   graphql  Format GraphQL files recursively from the current directory
   hbs   Format Handlebars files recursively from the current directory
@@ -28,6 +29,9 @@ Commands:
   yaml  Format YAML files recursively from the current directory
   help  Show this help message
 USAGE
+      ;;
+    angular)
+      npx --yes prettier --write --parser angular "**/*.component.html"
       ;;
     css)
       npx --yes prettier --write "**/*.css"
