@@ -10,25 +10,25 @@ Usage: pretty <command>
 
 Commands:
   angular  Format Angular templates recursively from the current directory
-  css   Format CSS files recursively from the current directory
+  css      Format CSS files recursively from the current directory
   graphql  Format GraphQL files recursively from the current directory
-  hbs   Format Handlebars files recursively from the current directory
-  html  Format HTML files recursively from the current directory
-  js    Format JavaScript files recursively from the current directory
-  json  Format JSON files recursively from the current directory
-  json5 Format JSON5 files recursively from the current directory
-  jsonc Format JSONC files recursively from the current directory
-  jsx   Format JSX files recursively from the current directory
-  less  Format Less files recursively from the current directory
-  md    Format Markdown files recursively from the current directory
-  mdx   Format MDX files recursively from the current directory
-  mjml  Format MJML files recursively from the current directory
-  scss  Format SCSS files recursively from the current directory
-  ts    Format TypeScript files recursively from the current directory
-  tsx   Format TSX files recursively from the current directory
-  vue   Format Vue files recursively from the current directory
-  yaml  Format YAML files recursively from the current directory
-  help  Show this help message
+  hbs      Format Handlebars files recursively from the current directory
+  html     Format HTML files recursively from the current directory
+  js       Format JavaScript files recursively from the current directory
+  json     Format JSON files recursively from the current directory
+  json5    Format JSON5 files recursively from the current directory
+  jsonc    Format JSONC files recursively from the current directory
+  jsx      Format JSX files recursively from the current directory
+  less     Format Less files recursively from the current directory
+  md       Format Markdown files recursively from the current directory
+  mdx      Format MDX files recursively from the current directory
+  mjml     Format MJML files recursively from the current directory
+  scss     Format SCSS files recursively from the current directory
+  ts       Format TypeScript files recursively from the current directory
+  tsx      Format TSX files recursively from the current directory
+  vue      Format Vue files recursively from the current directory
+  yaml     Format YAML files recursively from the current directory
+  help     Show this help message
 USAGE
       ;;
     angular)
