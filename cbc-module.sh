@@ -23,6 +23,7 @@ Commands:
   scss  Format SCSS files recursively from the current directory
   ts    Format TypeScript files recursively from the current directory
   tsx   Format TSX files recursively from the current directory
+  vue   Format Vue files recursively from the current directory
   yaml  Format YAML files recursively from the current directory
   help  Show this help message
 USAGE
@@ -69,6 +70,9 @@ USAGE
       ;;
     tsx)
       npx --yes prettier --write "**/*.tsx"
+      ;;
+    vue)
+      npx --yes prettier --write "**/*.vue"
       ;;
     yaml)
       npx --yes prettier --write "**/*.{yaml,yml}"
