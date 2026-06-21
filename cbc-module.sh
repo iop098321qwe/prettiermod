@@ -12,6 +12,7 @@ Commands:
   css   Format CSS files recursively from the current directory
   html  Format HTML files recursively from the current directory
   js    Format JavaScript files recursively from the current directory
+  json  Format JSON files recursively from the current directory
   jsx   Format JSX files recursively from the current directory
   less  Format Less files recursively from the current directory
   scss  Format SCSS files recursively from the current directory
@@ -28,6 +29,9 @@ USAGE
       ;;
     js)
       npx --yes prettier --write "**/*.{js,cjs,mjs}"
+      ;;
+    json)
+      npx --yes prettier --write "**/*.json"
       ;;
     jsx)
       npx --yes prettier --write "**/*.jsx"
