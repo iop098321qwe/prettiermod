@@ -36,9 +36,9 @@ When passthrough options include `--check`, `-c`, `--list-different`, `-l`, or
 
 ## Shortcuts
 
-| Command | Expands to |
-| --- | --- |
-| `pretty web` | `html css scss less js jsx ts tsx vue json json5 jsonc yaml md mdx graphql hbs` |
+| Command      | Expands to                                                                           |
+| ------------ | ------------------------------------------------------------------------------------ |
+| `pretty web` | `html css scss less js jsx ts tsx vue json json5 jsonc yaml md mdx graphql hbs`      |
 | `pretty all` | `css graphql hbs html js json json5 jsonc jsx less md mdx mjml scss ts tsx vue yaml` |
 
 Shortcuts can be combined with explicit file types. Duplicate file types are
@@ -46,25 +46,25 @@ deduplicated in first-seen order.
 
 ## Commands
 
-| Command | Files |
-| --- | --- |
-| `pretty css` | `**/*.css` |
-| `pretty graphql` | `**/*.{graphql,gql}` |
-| `pretty hbs` | `**/*.{hbs,handlebars}` |
-| `pretty html` | `**/*.html` |
-| `pretty js` | `**/*.{js,cjs,mjs}` |
-| `pretty json` | `**/*.json` |
-| `pretty json5` | `**/*.json5` |
-| `pretty jsonc` | `**/*.jsonc` |
-| `pretty jsx` | `**/*.jsx` |
-| `pretty less` | `**/*.less` |
-| `pretty md` | `**/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}` |
-| `pretty mdx` | `**/*.mdx` |
-| `pretty mjml` | `**/*.mjml` |
-| `pretty scss` | `**/*.scss` |
-| `pretty ts` | `**/*.{ts,cts,mts}` |
-| `pretty tsx` | `**/*.tsx` |
-| `pretty vue` | `**/*.vue` |
-| `pretty yaml` | `**/*.{yaml,yml}` |
+| Command          | Files                                           |
+| ---------------- | ----------------------------------------------- |
+| `pretty css`     | `**/*.css`                                      |
+| `pretty graphql` | `**/*.{graphql,gql}`                            |
+| `pretty hbs`     | `**/*.{hbs,handlebars}`                         |
+| `pretty html`    | `**/*.html`                                     |
+| `pretty js`      | `**/*.{js,cjs,mjs}`                             |
+| `pretty json`    | `**/*.json`                                     |
+| `pretty json5`   | `**/*.json5`                                    |
+| `pretty jsonc`   | `**/*.jsonc`                                    |
+| `pretty jsx`     | `**/*.jsx`                                      |
+| `pretty less`    | `**/*.less`                                     |
+| `pretty md`      | `**/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}` |
+| `pretty mdx`     | `**/*.mdx`                                      |
+| `pretty mjml`    | `**/*.mjml`                                     |
+| `pretty scss`    | `**/*.scss`                                     |
+| `pretty ts`      | `**/*.{ts,cts,mts}`                             |
+| `pretty tsx`     | `**/*.tsx`                                      |
+| `pretty vue`     | `**/*.vue`                                      |
+| `pretty yaml`    | `**/*.{yaml,yml}`                               |
 
 Formatter commands let Prettier infer the parser from each matching file path.
