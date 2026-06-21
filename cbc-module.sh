@@ -22,6 +22,7 @@ Commands:
   less  Format Less files recursively from the current directory
   md    Format Markdown files recursively from the current directory
   mdx   Format MDX files recursively from the current directory
+  mjml  Format MJML files recursively from the current directory
   scss  Format SCSS files recursively from the current directory
   ts    Format TypeScript files recursively from the current directory
   tsx   Format TSX files recursively from the current directory
@@ -69,6 +70,9 @@ USAGE
       ;;
     mdx)
       npx --yes prettier --write "**/*.mdx"
+      ;;
+    mjml)
+      npx --yes prettier --write "**/*.mjml"
       ;;
     scss)
       npx --yes prettier --write "**/*.scss"
