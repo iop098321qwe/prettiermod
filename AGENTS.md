@@ -84,10 +84,13 @@ configs, nested `AGENTS.md` files, or release automation.
 ## Architecture
 
 - `cbc-module.sh` exposes the `pretty` Bash function.
-- `pretty` dispatches subcommands through a `case` statement.
-- Formatter arms call `npx --yes prettier --write` with quoted globs.
-- `pretty angular` also passes `--parser angular` for component
-  templates.
+- `pretty` validates formatter tokens before running Prettier.
+- `pretty` expands `web` and `all` shortcuts into formatter token lists.
+- `pretty` deduplicates formatter tokens in first-seen order.
+- `pretty` maps formatter tokens to quoted globs.
+- Formatter commands call `npx --yes prettier` once per invocation.
+- `pretty` adds `--write` unless check-mode passthrough flags are used.
+- Prettier passthrough options must appear after `--`.
 - The quoted globs are resolved by Prettier from the current directory.
 - `package.json`, `.husky/commit-msg`, and `commitlint.config.cjs`
   enforce Conventional Commit messages.
@@ -99,7 +102,6 @@ configs, nested `AGENTS.md` files, or release automation.
 - `source ./cbc-module.sh`: load the `pretty` Bash function.
 - `pretty help`: show available `pretty` subcommands.
 - Formatter commands run recursively from the current directory.
-- `pretty angular`: format Angular component templates.
 - `pretty css`: format CSS files.
 - `pretty graphql`: format GraphQL files.
 - `pretty hbs`: format Handlebars files.
@@ -118,6 +120,10 @@ configs, nested `AGENTS.md` files, or release automation.
 - `pretty tsx`: format TSX files.
 - `pretty vue`: format Vue files.
 - `pretty yaml`: format YAML files.
+- `pretty web`: format common frontend files.
+- `pretty all`: format all supported file types.
+- `pretty html js css`: format multiple file types in one run.
+- `pretty web -- --check`: pass Prettier options after `--`.
 - `bash -n cbc-module.sh`: check shell syntax.
 - `bash -c 'source ./cbc-module.sh; pretty help'`: verify help output.
 - `git status --short --branch`: show branch and worktree state.
@@ -131,6 +137,7 @@ configs, nested `AGENTS.md` files, or release automation.
 - No automated passing test suite is verified in this repository.
 - Use `bash -n cbc-module.sh` after shell changes.
 - Use `pretty help` and an unknown command to verify dispatcher behavior.
+- Verify multi-type usage, shortcut expansion, and `--` passthrough.
 - Shadow `npx` in a shell function to verify formatter commands safely.
 - Do not run real formatter commands in the repo unless formatting
   tracked files is intended.
@@ -156,7 +163,8 @@ configs, nested `AGENTS.md` files, or release automation.
 ## Conventions
 
 - Use small, correct changes that fit the existing project structure.
-- Add new `pretty` subcommands as explicit `case` arms.
+- Add formatter types to validation, shortcut expansion, and glob
+  mapping together.
 - Update `pretty help` and `README.md` when launcher commands change.
 - Verify behavior from the actual codebase before documenting it.
 - Keep `AGENTS.md` as instructions, not as a changelog, diary, or work
