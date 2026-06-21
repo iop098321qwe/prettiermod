@@ -11,12 +11,43 @@ source ./cbc-module.sh
 pretty help
 ```
 
-Formatter commands run Prettier through `npx` with `--write`, so matching files
-are updated in place.
+Formatter commands run Prettier through `npx`. By default, `pretty` passes
+`--write`, so matching files are updated in place.
+
+Pass multiple file types as separate arguments:
+
+```bash
+pretty html js css
+pretty web mjml
+```
+
+Comma-separated file types are not supported. Use `pretty html js css` instead
+of `pretty html,js,css`.
+
+Pass Prettier options after `--`:
+
+```bash
+pretty web -- --check
+pretty html js -- --config .prettierrc
+```
+
+When passthrough options include `--check`, `-c`, `--list-different`, `-l`, or
+`--debug-check`, `pretty` omits its default `--write` flag.
+
+## Shortcuts
+
+| Command | Expands to |
+| --- | --- |
+| `pretty web` | `html css scss less js jsx ts tsx vue json json5 jsonc yaml md mdx graphql hbs` |
+| `pretty all` | `css graphql hbs html js json json5 jsonc jsx less md mdx mjml scss ts tsx vue yaml` |
+
+Shortcuts can be combined with explicit file types. Duplicate file types are
+deduplicated in first-seen order.
+
+## Commands
 
 | Command | Files |
 | --- | --- |
-| `pretty angular` | Angular `**/*.component.html` templates |
 | `pretty css` | `**/*.css` |
 | `pretty graphql` | `**/*.{graphql,gql}` |
 | `pretty hbs` | `**/*.{hbs,handlebars}` |
@@ -36,5 +67,4 @@ are updated in place.
 | `pretty vue` | `**/*.vue` |
 | `pretty yaml` | `**/*.{yaml,yml}` |
 
-`pretty angular` uses Prettier's Angular parser. The other formatter commands
-let Prettier infer the parser from each matching file path.
+Formatter commands let Prettier infer the parser from each matching file path.
