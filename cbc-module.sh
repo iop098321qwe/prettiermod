@@ -13,6 +13,7 @@ Commands:
   html  Format HTML files recursively from the current directory
   js    Format JavaScript files recursively from the current directory
   jsx   Format JSX files recursively from the current directory
+  scss  Format SCSS files recursively from the current directory
   ts    Format TypeScript files recursively from the current directory
   tsx   Format TSX files recursively from the current directory
   help  Show this help message
@@ -29,6 +30,9 @@ USAGE
       ;;
     jsx)
       npx --yes prettier --write "**/*.jsx"
+      ;;
+    scss)
+      npx --yes prettier --write "**/*.scss"
       ;;
     ts)
       npx --yes prettier --write "**/*.{ts,cts,mts}"
