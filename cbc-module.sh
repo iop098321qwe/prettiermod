@@ -10,6 +10,7 @@ Usage: pretty <command>
 
 Commands:
   css   Format CSS files recursively from the current directory
+  graphql  Format GraphQL files recursively from the current directory
   html  Format HTML files recursively from the current directory
   js    Format JavaScript files recursively from the current directory
   json  Format JSON files recursively from the current directory
@@ -28,6 +29,9 @@ USAGE
       ;;
     css)
       npx --yes prettier --write "**/*.css"
+      ;;
+    graphql)
+      npx --yes prettier --write "**/*.{graphql,gql}"
       ;;
     html)
       npx --yes prettier --write "**/*.html"
