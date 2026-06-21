@@ -9,6 +9,7 @@ function pretty() {
 Usage: pretty <command>
 
 Commands:
+  css   Format CSS files recursively from the current directory
   html  Format HTML files recursively from the current directory
   js    Format JavaScript files recursively from the current directory
   jsx   Format JSX files recursively from the current directory
@@ -16,6 +17,9 @@ Commands:
   tsx   Format TSX files recursively from the current directory
   help  Show this help message
 USAGE
+      ;;
+    css)
+      npx --yes prettier --write "**/*.css"
       ;;
     html)
       npx --yes prettier --write "**/*.html"
