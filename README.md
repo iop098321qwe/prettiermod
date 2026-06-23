@@ -14,6 +14,9 @@ pretty help
 Formatter commands run Prettier through `npx`. By default, `pretty` passes
 `--write`, so matching files are updated in place.
 
+When formatting Markdown, `pretty` skips a root-level `CHANGELOG.md`.
+`site/CHANGELOG.md` is the only allowed exception.
+
 Pass multiple file types as separate arguments:
 
 ```bash
@@ -58,7 +61,7 @@ deduplicated in first-seen order.
 | `pretty jsonc`   | `**/*.jsonc`                                    |
 | `pretty jsx`     | `**/*.jsx`                                      |
 | `pretty less`    | `**/*.less`                                     |
-| `pretty md`      | `**/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}` |
+| `pretty md`      | `**/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}` except root `CHANGELOG.md` |
 | `pretty mdx`     | `**/*.mdx`                                      |
 | `pretty mjml`    | `**/*.mjml`                                     |
 | `pretty scss`    | `**/*.scss`                                     |
