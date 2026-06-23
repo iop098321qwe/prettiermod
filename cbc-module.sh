@@ -178,7 +178,8 @@ USAGE
         globs+=("**/*.less")
         ;;
       md)
-        globs+=("**/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}")
+        globs+=("!(CHANGELOG).{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}")
+        globs+=("**/*/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}")
         ;;
       mdx)
         globs+=("**/*.mdx")
