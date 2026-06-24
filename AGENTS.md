@@ -86,6 +86,7 @@ configs, nested `AGENTS.md` files, or release automation.
 ## Architecture
 
 - `cbc-module.sh` exposes the `pretty` Bash function.
+- Bare `pretty` expands to the same formatter set as `pretty all`.
 - `pretty` validates formatter tokens before running Prettier.
 - `pretty` expands `web` and `all` shortcuts into formatter token lists.
 - `pretty` deduplicates formatter tokens in first-seen order.
@@ -103,6 +104,7 @@ configs, nested `AGENTS.md` files, or release automation.
 ## Commands
 
 - `source ./cbc-module.sh`: load the `pretty` Bash function.
+- `pretty`: format all supported file types.
 - `pretty help`: show available `pretty` subcommands.
 - Formatter commands run recursively from the current directory.
 - `pretty css`: format CSS files.
