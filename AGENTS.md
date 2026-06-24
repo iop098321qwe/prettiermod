@@ -54,6 +54,8 @@ configs, nested `AGENTS.md` files, or release automation.
 - `.gitignore`: ignored local dependency and virtual environment paths.
 - `.husky/commit-msg`: commit message hook running commitlint.
 - `AGENTS.md`: root AI coding agent instructions.
+- `CHANGELOG.md`: tracked release changelog.
+  Verification needed: update workflow is not documented.
 - `LICENSE`: GNU GPL version 3 license text.
 - `README.md`: primary project overview and `pretty` command reference.
 - `cbc-module.sh`: CBC module entrypoint defining the `pretty` launcher.
@@ -88,6 +90,7 @@ configs, nested `AGENTS.md` files, or release automation.
 - `pretty` expands `web` and `all` shortcuts into formatter token lists.
 - `pretty` deduplicates formatter tokens in first-seen order.
 - `pretty` maps formatter tokens to quoted globs.
+- `pretty` excludes only the root `CHANGELOG.md` from Markdown globs.
 - Formatter commands call `npx --yes prettier` once per invocation.
 - `pretty` adds `--write` unless check-mode passthrough flags are used.
 - Prettier passthrough options must appear after `--`.
@@ -112,7 +115,7 @@ configs, nested `AGENTS.md` files, or release automation.
 - `pretty jsonc`: format JSONC files.
 - `pretty jsx`: format JSX files.
 - `pretty less`: format Less files.
-- `pretty md`: format common Markdown files.
+- `pretty md`: format common Markdown files except root `CHANGELOG.md`.
 - `pretty mdx`: format MDX files.
 - `pretty mjml`: format MJML files.
 - `pretty scss`: format SCSS files.

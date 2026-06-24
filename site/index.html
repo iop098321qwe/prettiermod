@@ -465,6 +465,11 @@
                 default, <code>pretty</code> passes <code>--write</code>, so
                 matching files are updated in place.
               </p>
+              <p>
+                When formatting Markdown, <code>pretty</code> skips a root-level
+                <code>CHANGELOG.md</code>. <code>site/CHANGELOG.md</code> is the
+                only allowed exception.
+              </p>
               <p>Pass multiple file types as separate arguments:</p>
               <div class="language-bash highlight">
                 <pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pretty<span class="w"> </span>html<span class="w"> </span>js<span class="w"> </span>css
@@ -588,6 +593,7 @@
                     <td><code>pretty md</code></td>
                     <td>
                       <code>**/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}</code>
+                      except root <code>CHANGELOG.md</code>
                     </td>
                   </tr>
                   <tr>
