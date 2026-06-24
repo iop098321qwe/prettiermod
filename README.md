@@ -8,8 +8,11 @@ Load the CBC module, then run `pretty` from the directory you want to format.
 
 ```bash
 source ./cbc-module.sh
+pretty
 pretty help
 ```
+
+Running `pretty` with no arguments is equivalent to `pretty all`.
 
 Formatter commands run Prettier through `npx`. By default, `pretty` passes
 `--write`, so matching files are updated in place.
@@ -41,6 +44,7 @@ When passthrough options include `--check`, `-c`, `--list-different`, `-l`, or
 
 | Command      | Expands to                                                                           |
 | ------------ | ------------------------------------------------------------------------------------ |
+| `pretty`     | `css graphql hbs html js json json5 jsonc jsx less md mdx mjml scss ts tsx vue yaml` |
 | `pretty web` | `html css scss less js jsx ts tsx vue json json5 jsonc yaml md mdx graphql hbs`      |
 | `pretty all` | `css graphql hbs html js json json5 jsonc jsx less md mdx mjml scss ts tsx vue yaml` |
 

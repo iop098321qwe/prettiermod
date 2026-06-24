@@ -14,7 +14,7 @@ function pretty() {
   local type
 
   if (($# == 0)); then
-    set -- help
+    set -- all
   fi
 
   if (($# == 1)); then
