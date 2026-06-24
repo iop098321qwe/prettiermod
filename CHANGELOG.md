@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.2](https://github.com/iop098321qwe/prettiermod/compare/v0.0.1...v0.0.2) (2026-06-24)
+
+
+### Bug Fixes
+
+* **pretty:** skip root changelog markdown ([2c36c69](https://github.com/iop098321qwe/prettiermod/commit/2c36c691bd2258ed4ece63da9e3039ac7781f458))
+
 ## 0.0.1 (2026-06-21)
 
 
