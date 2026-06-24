@@ -440,8 +440,10 @@
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>Load the CBC module, then run <code>pretty</code> from the directory you want to format.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">source</span><span class="w"> </span>./cbc-module.sh
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pretty<span class="w"> </span><span class="nb">help</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pretty
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pretty<span class="w"> </span><span class="nb">help</span>
 </span></code></pre></div>
+<p>Running <code>pretty</code> with no arguments is equivalent to <code>pretty all</code>.</p>
 <p>Formatter commands run Prettier through <code>npx</code>. By default, <code>pretty</code> passes
 <code>--write</code>, so matching files are updated in place.</p>
 <p>When formatting Markdown, <code>pretty</code> skips a root-level <code>CHANGELOG.md</code>.
@@ -467,6 +469,10 @@ of <code>pretty html,js,css</code>.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><code>pretty</code></td>
+<td><code>css graphql hbs html js json json5 jsonc jsx less md mdx mjml scss ts tsx vue yaml</code></td>
+</tr>
 <tr>
 <td><code>pretty web</code></td>
 <td><code>html css scss less js jsx ts tsx vue json json5 jsonc yaml md mdx graphql hbs</code></td>

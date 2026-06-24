@@ -848,6 +848,7 @@ configs, nested <code>AGENTS.md</code> files, or release automation.</p>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>cbc-module.sh</code> exposes the <code>pretty</code> Bash function.</li>
+<li>Bare <code>pretty</code> expands to the same formatter set as <code>pretty all</code>.</li>
 <li><code>pretty</code> validates formatter tokens before running Prettier.</li>
 <li><code>pretty</code> expands <code>web</code> and <code>all</code> shortcuts into formatter token lists.</li>
 <li><code>pretty</code> deduplicates formatter tokens in first-seen order.</li>
@@ -865,6 +866,7 @@ configs, nested <code>AGENTS.md</code> files, or release automation.</p>
 <h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>source ./cbc-module.sh</code>: load the <code>pretty</code> Bash function.</li>
+<li><code>pretty</code>: format all supported file types.</li>
 <li><code>pretty help</code>: show available <code>pretty</code> subcommands.</li>
 <li>Formatter commands run recursively from the current directory.</li>
 <li><code>pretty css</code>: format CSS files.</li>
