@@ -882,6 +882,10 @@
                 <li>
                   <code>AGENTS.md</code>: root AI coding agent instructions.
                 </li>
+                <li>
+                  <code>CHANGELOG.md</code>: tracked release changelog.
+                  Verification needed: update workflow is not documented.
+                </li>
                 <li><code>LICENSE</code>: GNU GPL version 3 license text.</li>
                 <li>
                   <code>README.md</code>: primary project overview and
@@ -1013,6 +1017,10 @@
                   <code>pretty</code> maps formatter tokens to quoted globs.
                 </li>
                 <li>
+                  <code>pretty</code> excludes only the root
+                  <code>CHANGELOG.md</code> from Markdown globs.
+                </li>
+                <li>
                   Formatter commands call <code>npx --yes prettier</code> once
                   per invocation.
                 </li>
@@ -1068,7 +1076,10 @@
                 <li><code>pretty jsonc</code>: format JSONC files.</li>
                 <li><code>pretty jsx</code>: format JSX files.</li>
                 <li><code>pretty less</code>: format Less files.</li>
-                <li><code>pretty md</code>: format common Markdown files.</li>
+                <li>
+                  <code>pretty md</code>: format common Markdown files except
+                  root <code>CHANGELOG.md</code>.
+                </li>
                 <li><code>pretty mdx</code>: format MDX files.</li>
                 <li><code>pretty mjml</code>: format MJML files.</li>
                 <li><code>pretty scss</code>: format SCSS files.</li>
