@@ -17,6 +17,8 @@ Running `pretty` with no arguments is equivalent to `pretty all`.
 Formatter commands run Prettier through `npx`. By default, `pretty` passes
 `--write`, so matching files are updated in place.
 
+Directory flags must appear after formatter commands and before `--`.
+
 When formatting Markdown, `pretty` skips a root-level `CHANGELOG.md`.
 `site/CHANGELOG.md` is the only allowed exception.
 
@@ -25,6 +27,8 @@ Pass multiple file types as separate arguments:
 ```bash
 pretty html js css
 pretty web mjml
+pretty all -d site
+pretty web -dr '^site$'
 ```
 
 Comma-separated file types are not supported. Use `pretty html js css` instead
@@ -35,10 +39,31 @@ Pass Prettier options after `--`:
 ```bash
 pretty web -- --check
 pretty html js -- --config .prettierrc
+pretty all -d site -- --check
 ```
 
 When passthrough options include `--check`, `-c`, `--list-different`, `-l`, or
 `--debug-check`, `pretty` omits its default `--write` flag.
+
+## Directory Targeting
+
+Target a single relative directory with `-d`:
+
+```bash
+pretty all -d site
+pretty md -d docs
+```
+
+Combine `-d` with `-r` to treat the directory value as a regex over full
+relative directory paths beneath the current directory:
+
+```bash
+pretty web -dr '^site$'
+pretty md -rd '^(docs|site)$'
+```
+
+When a directory regex matches more than one directory, `pretty` runs against
+every matched directory.
 
 ## Shortcuts
 
