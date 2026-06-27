@@ -89,8 +89,13 @@ configs, nested `AGENTS.md` files, or release automation.
 - Bare `pretty` expands to the same formatter set as `pretty all`.
 - `pretty` validates formatter tokens before running Prettier.
 - `pretty` expands `web` and `all` shortcuts into formatter token lists.
+- `pretty` accepts directory flags only after formatter tokens and before
+  `--` passthrough options.
 - `pretty` deduplicates formatter tokens in first-seen order.
 - `pretty` maps formatter tokens to quoted globs.
+- `pretty -d` prefixes those globs to target one relative directory.
+- `pretty -r` treats the `-d` value as a regex over full relative
+  directory paths beneath the current directory.
 - `pretty` excludes only the root `CHANGELOG.md` from Markdown globs.
 - Formatter commands call `npx --yes prettier` once per invocation.
 - `pretty` adds `--write` unless check-mode passthrough flags are used.
@@ -128,6 +133,8 @@ configs, nested `AGENTS.md` files, or release automation.
 - `pretty web`: format common frontend files.
 - `pretty all`: format all supported file types.
 - `pretty html js css`: format multiple file types in one run.
+- `pretty all -d site`: format all supported types only in `site/`.
+- `pretty web -dr '^site$'`: regex-match directories before formatting.
 - `pretty web -- --check`: pass Prettier options after `--`.
 - `bash -n cbc-module.sh`: check shell syntax.
 - `bash -c 'source ./cbc-module.sh; pretty help'`: verify help output.
@@ -142,7 +149,8 @@ configs, nested `AGENTS.md` files, or release automation.
 - No automated passing test suite is verified in this repository.
 - Use `bash -n cbc-module.sh` after shell changes.
 - Use `pretty help` and an unknown command to verify dispatcher behavior.
-- Verify multi-type usage, shortcut expansion, and `--` passthrough.
+- Verify multi-type usage, shortcut expansion, directory flags, and `--`
+  passthrough.
 - Shadow `npx` in a shell function to verify formatter commands safely.
 - Do not run real formatter commands in the repo unless formatting
   tracked files is intended.
