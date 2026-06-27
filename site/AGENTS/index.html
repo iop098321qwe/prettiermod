@@ -851,8 +851,13 @@ configs, nested <code>AGENTS.md</code> files, or release automation.</p>
 <li>Bare <code>pretty</code> expands to the same formatter set as <code>pretty all</code>.</li>
 <li><code>pretty</code> validates formatter tokens before running Prettier.</li>
 <li><code>pretty</code> expands <code>web</code> and <code>all</code> shortcuts into formatter token lists.</li>
+<li><code>pretty</code> accepts directory flags only after formatter tokens and before
+  <code>--</code> passthrough options.</li>
 <li><code>pretty</code> deduplicates formatter tokens in first-seen order.</li>
 <li><code>pretty</code> maps formatter tokens to quoted globs.</li>
+<li><code>pretty -d</code> prefixes those globs to target one relative directory.</li>
+<li><code>pretty -r</code> treats the <code>-d</code> value as a regex over full relative
+  directory paths beneath the current directory.</li>
 <li><code>pretty</code> excludes only the root <code>CHANGELOG.md</code> from Markdown globs.</li>
 <li>Formatter commands call <code>npx --yes prettier</code> once per invocation.</li>
 <li><code>pretty</code> adds <code>--write</code> unless check-mode passthrough flags are used.</li>
@@ -890,6 +895,8 @@ configs, nested <code>AGENTS.md</code> files, or release automation.</p>
 <li><code>pretty web</code>: format common frontend files.</li>
 <li><code>pretty all</code>: format all supported file types.</li>
 <li><code>pretty html js css</code>: format multiple file types in one run.</li>
+<li><code>pretty all -d site</code>: format all supported types only in <code>site/</code>.</li>
+<li><code>pretty web -dr '^site$'</code>: regex-match directories before formatting.</li>
 <li><code>pretty web -- --check</code>: pass Prettier options after <code>--</code>.</li>
 <li><code>bash -n cbc-module.sh</code>: check shell syntax.</li>
 <li><code>bash -c 'source ./cbc-module.sh; pretty help'</code>: verify help output.</li>
@@ -904,7 +911,8 @@ configs, nested <code>AGENTS.md</code> files, or release automation.</p>
 <li>No automated passing test suite is verified in this repository.</li>
 <li>Use <code>bash -n cbc-module.sh</code> after shell changes.</li>
 <li>Use <code>pretty help</code> and an unknown command to verify dispatcher behavior.</li>
-<li>Verify multi-type usage, shortcut expansion, and <code>--</code> passthrough.</li>
+<li>Verify multi-type usage, shortcut expansion, directory flags, and <code>--</code>
+  passthrough.</li>
 <li>Shadow <code>npx</code> in a shell function to verify formatter commands safely.</li>
 <li>Do not run real formatter commands in the repo unless formatting
   tracked files is intended.</li>

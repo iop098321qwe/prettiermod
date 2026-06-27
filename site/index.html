@@ -284,6 +284,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#directory-targeting" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Directory Targeting
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#shortcuts" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -391,6 +402,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#directory-targeting" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Directory Targeting
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#shortcuts" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -446,20 +468,36 @@
 <p>Running <code>pretty</code> with no arguments is equivalent to <code>pretty all</code>.</p>
 <p>Formatter commands run Prettier through <code>npx</code>. By default, <code>pretty</code> passes
 <code>--write</code>, so matching files are updated in place.</p>
+<p>Directory flags must appear after formatter commands and before <code>--</code>.</p>
 <p>When formatting Markdown, <code>pretty</code> skips a root-level <code>CHANGELOG.md</code>.
 <code>site/CHANGELOG.md</code> is the only allowed exception.</p>
 <p>Pass multiple file types as separate arguments:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pretty<span class="w"> </span>html<span class="w"> </span>js<span class="w"> </span>css
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>pretty<span class="w"> </span>web<span class="w"> </span>mjml
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>pretty<span class="w"> </span>all<span class="w"> </span>-d<span class="w"> </span>site
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>pretty<span class="w"> </span>web<span class="w"> </span>-dr<span class="w"> </span><span class="s1">&#39;^site$&#39;</span>
 </span></code></pre></div>
 <p>Comma-separated file types are not supported. Use <code>pretty html js css</code> instead
 of <code>pretty html,js,css</code>.</p>
 <p>Pass Prettier options after <code>--</code>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pretty<span class="w"> </span>web<span class="w"> </span>--<span class="w"> </span>--check
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pretty<span class="w"> </span>html<span class="w"> </span>js<span class="w"> </span>--<span class="w"> </span>--config<span class="w"> </span>.prettierrc
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pretty<span class="w"> </span>all<span class="w"> </span>-d<span class="w"> </span>site<span class="w"> </span>--<span class="w"> </span>--check
 </span></code></pre></div>
 <p>When passthrough options include <code>--check</code>, <code>-c</code>, <code>--list-different</code>, <code>-l</code>, or
 <code>--debug-check</code>, <code>pretty</code> omits its default <code>--write</code> flag.</p>
+<h2 id="directory-targeting">Directory Targeting<a class="headerlink" href="#directory-targeting" title="Permanent link">&para;</a></h2>
+<p>Target a single relative directory with <code>-d</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pretty<span class="w"> </span>all<span class="w"> </span>-d<span class="w"> </span>site
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pretty<span class="w"> </span>md<span class="w"> </span>-d<span class="w"> </span>docs
+</span></code></pre></div>
+<p>Combine <code>-d</code> with <code>-r</code> to treat the directory value as a regex over full
+relative directory paths beneath the current directory:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pretty<span class="w"> </span>web<span class="w"> </span>-dr<span class="w"> </span><span class="s1">&#39;^site$&#39;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pretty<span class="w"> </span>md<span class="w"> </span>-rd<span class="w"> </span><span class="s1">&#39;^(docs|site)$&#39;</span>
+</span></code></pre></div>
+<p>When a directory regex matches more than one directory, <code>pretty</code> runs against
+every matched directory.</p>
 <h2 id="shortcuts">Shortcuts<a class="headerlink" href="#shortcuts" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
