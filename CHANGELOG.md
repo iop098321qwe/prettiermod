@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.4](https://github.com/iop098321qwe/prettiermod/compare/v0.0.3...v0.0.4) (2026-06-27)
+
+
+### Features
+
+* **pretty:** add directory targeting flags ([7fc6992](https://github.com/iop098321qwe/prettiermod/commit/7fc699271ae1b2eb47adf6e857f1fe15e2d687da))
+
 ## [0.0.3](https://github.com/iop098321qwe/prettiermod/compare/v0.0.2...v0.0.3) (2026-06-24)
 
 
