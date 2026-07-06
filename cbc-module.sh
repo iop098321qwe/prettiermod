@@ -4,6 +4,7 @@ function pretty() {
   local -a base_globs=()
   local -a formatter_args=()
   local -a prettier_args=()
+  local -a root_exclude_globs=()
   local -a selected_types=()
   local -a target_dirs=()
   local -a unique_types=()
@@ -354,8 +355,8 @@ USAGE
         base_globs+=("**/*.less")
         ;;
       md)
-        base_globs+=("!(CHANGELOG).{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}")
-        base_globs+=("**/*/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}")
+        base_globs+=("**/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown}")
+        root_exclude_globs+=("CHANGELOG.md")
         ;;
       mdx)
         base_globs+=("**/*.mdx")
@@ -383,11 +384,21 @@ USAGE
 
   if ((${#target_dirs[@]} == 0)); then
     globs=("${base_globs[@]}")
+
+    for arg in "${root_exclude_globs[@]}"; do
+      globs+=("!$arg")
+    done
   else
     for target_dir in "${target_dirs[@]}"; do
       for arg in "${base_globs[@]}"; do
         globs+=("$target_dir/$arg")
       done
+
+      if [[ "$target_dir" == '.' ]]; then
+        for arg in "${root_exclude_globs[@]}"; do
+          globs+=("!./$arg")
+        done
+      fi
     done
   fi
 
