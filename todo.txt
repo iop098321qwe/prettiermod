@@ -1,1 +1,1 @@
-(A) pretty should assume 'all' flag when run by itself @feature
+(A) remove errors on non-existing file types when running pretty all @feature
