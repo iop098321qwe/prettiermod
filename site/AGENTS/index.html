@@ -1014,6 +1014,11 @@
                   <code>all</code> shortcuts into formatter token lists.
                 </li>
                 <li>
+                  <code>pretty</code> accepts directory flags only after
+                  formatter tokens and before <code>--</code> passthrough
+                  options.
+                </li>
+                <li>
                   <code>pretty</code> deduplicates formatter tokens in
                   first-seen order.
                 </li>
@@ -1021,7 +1026,16 @@
                   <code>pretty</code> maps formatter tokens to quoted globs.
                 </li>
                 <li>
-                  <code>pretty</code> excludes only the root
+                  <code>pretty -d</code> prefixes those globs to target one
+                  relative directory.
+                </li>
+                <li>
+                  <code>pretty -r</code> treats the <code>-d</code> value as a
+                  regex over full relative directory paths beneath the current
+                  directory.
+                </li>
+                <li>
+                  <code>pretty</code> excludes only the exact root
                   <code>CHANGELOG.md</code> from Markdown globs.
                 </li>
                 <li>
@@ -1083,7 +1097,7 @@
                 <li><code>pretty less</code>: format Less files.</li>
                 <li>
                   <code>pretty md</code>: format common Markdown files except
-                  root <code>CHANGELOG.md</code>.
+                  exact root <code>CHANGELOG.md</code>.
                 </li>
                 <li><code>pretty mdx</code>: format MDX files.</li>
                 <li><code>pretty mjml</code>: format MJML files.</li>
@@ -1099,6 +1113,14 @@
                 <li>
                   <code>pretty html js css</code>: format multiple file types in
                   one run.
+                </li>
+                <li>
+                  <code>pretty all -d site</code>: format all supported types
+                  only in <code>site/</code>.
+                </li>
+                <li>
+                  <code>pretty web -dr '^site$'</code>: regex-match directories
+                  before formatting.
                 </li>
                 <li>
                   <code>pretty web -- --check</code>: pass Prettier options
@@ -1151,8 +1173,8 @@
                   dispatcher behavior.
                 </li>
                 <li>
-                  Verify multi-type usage, shortcut expansion, and
-                  <code>--</code> passthrough.
+                  Verify multi-type usage, shortcut expansion, directory flags,
+                  and <code>--</code> passthrough.
                 </li>
                 <li>
                   Shadow <code>npx</code> in a shell function to verify
