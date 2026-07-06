@@ -96,7 +96,8 @@ configs, nested `AGENTS.md` files, or release automation.
 - `pretty -d` prefixes those globs to target one relative directory.
 - `pretty -r` treats the `-d` value as a regex over full relative
   directory paths beneath the current directory.
-- `pretty` excludes only the root `CHANGELOG.md` from Markdown globs.
+- `pretty` excludes only the exact root `CHANGELOG.md` from Markdown
+  globs.
 - Formatter commands call `npx --yes prettier` once per invocation.
 - `pretty` adds `--write` unless check-mode passthrough flags are used.
 - Prettier passthrough options must appear after `--`.
@@ -122,7 +123,8 @@ configs, nested `AGENTS.md` files, or release automation.
 - `pretty jsonc`: format JSONC files.
 - `pretty jsx`: format JSX files.
 - `pretty less`: format Less files.
-- `pretty md`: format common Markdown files except root `CHANGELOG.md`.
+- `pretty md`: format common Markdown files except exact root
+  `CHANGELOG.md`.
 - `pretty mdx`: format MDX files.
 - `pretty mjml`: format MJML files.
 - `pretty scss`: format SCSS files.
