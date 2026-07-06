@@ -1,2 +1,3 @@
 x 2026-06-23 2026-06-23 add css and javascript file types due:2026-06-27 @feature +file-types
 x 2026-06-23 2026-06-23 add file type groups due:2026-06-21 @feature
+x 2026-07-06 2026-07-06 pretty should assume 'all' flag when run by itself @feature
